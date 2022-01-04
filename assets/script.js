@@ -12,10 +12,16 @@ var promptChar = '';
 var numNeeded = promptChar;
 
 //working to clean up cases
-function getText() {
+function getText(optionNum) {
+    if (!(optionNum > 0 && optionNum < 6)) {
+        window.alert("You did not pick a valid option. Try again.");
+
+            //call generator agin so user can pick valid option
+            generatePassword();
+    }
     for(var i = 0; i < promptChar; i++) {
-        var randomNumber = Math.floor(Math.random() * options.length);
-        numNeeded += options.substring(randomNumber, randomNumber + 1);
+        var randomNumber = Math.floor(Math.random() * options[optionNum-1].length);
+        numNeeded += options[optionNum-1].substring(randomNumber, randomNumber + 1);
     }
 }
 
@@ -39,32 +45,8 @@ function generatePassword() {
     var charSelectPrompt = window.prompt("Which characters would you like to include in your password? \nPlease enter one of the following: 1 for just LETTERS A-Z, 2 for LETTERS and NUMBERS, 3 for LETTERS and SPECIAL CHARACTERS, 4 for NUMBERS and SPECIAL CHARACTERS, 5 for ALL options.")
 
     charSelectPrompt = parseInt(charSelectPrompt);
-
-    //use switch to choose what characters user want in their password
-    switch(charSelectPrompt) {
-        case 1:
-            for(var i = 0; i < promptChar; i++) {
-                var randomNumber = Math.floor(Math.random() * optionOne.length);
-                numNeeded += optionOne.substring(randomNumber, randomNumber + 1);
-            }
-            
-            return numNeeded;
-            //break;
-        /*case 2:
-            options = [1];
-            for(var i = 0; i < promptChar; i++) {
-                var randomNumber = Math.floor(Math.random() * options.length);
-                numNeeded += options.substring(randomNumber, randomNumber + 1);
-            }
-            return numNeeded;*/
-            //break;
-        default:
-            window.alert("You did not pick a valid option. Try again.");
-
-            //call generator agin so user can pick valid option
-            generatePassword();
-            break;
-    }
+    getText(charSelectPrompt);
+    return numNeeded;
 }
 
 
@@ -73,10 +55,11 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = charLength();
-  var passwordText = document.querySelector("#password");
+    var passwordText = document.querySelector("#password");
+    document.querySelector("#password").value;
+    var password = charLength();
 
-  passwordText.value = password;
+    passwordText.value = password;
 }
 
 // Add event listener to generate button
