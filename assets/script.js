@@ -22,7 +22,7 @@ function getText(optionNum) {
 // get number of characters user wants
 function charLength() {
     //ask how many characters are needed
-    var promptChar = window.prompt("How many characters would you like to generate for you password? \nPlease choose from 8 to 128.");
+    promptChar = window.prompt("How many characters would you like to generate for you password? \nPlease choose from 8 to 128.");
 
     promptChar = parseInt(promptChar);
 
@@ -71,10 +71,10 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = charLength();
   var passwordText = document.querySelector("#password");
+  passwordText.value = "";
 
-  passwordText.value = password;
+  passwordText.value = charLength();
 }
 
 // Add event listener to generate button
