@@ -38,7 +38,7 @@ function charLength() {
 
 function generatePassword() {
     // ask what types of characters they would like for their password
-    var charSelectPrompt = window.prompt("Which characters would you like to include in your password? \nPlease enter one of the following: 1 for just LETTERS A-Z, 2 for LETTERS and NUMBERS, 3 for LETTERS and SPECIAL CHARACTERS, 4 for NUMBERS and SPECIAL CHARACTERS, 5 for ALL options.")
+    var charSelectPrompt = window.prompt("Which characters would you like to include in your password? \nPlease enter one of the following: \n1 : for just LETTERS A-Z \n2 : for LETTERS and NUMBERS \n3 : for LETTERS and SPECIAL CHARACTERS \n4 : for NUMBERS and SPECIAL CHARACTERS \n5 : for ALL options.")
 
     charSelectPrompt = parseInt(charSelectPrompt);
 
