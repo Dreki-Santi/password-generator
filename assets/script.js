@@ -13,6 +13,8 @@ var numNeeded = promptChar;
 
 // working to clean up cases
 function getText(optionNum) {
+    numNeeded = "";
+
     for(var i = 0; i < promptChar; i++) {
         var randomNumber = Math.floor(Math.random() * options[optionNum - 1].length);
         numNeeded += options[optionNum - 1].substring(randomNumber, randomNumber + 1);
